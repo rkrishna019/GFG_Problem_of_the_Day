@@ -1,0 +1,39 @@
+class Solution
+{
+    // The given root is the root of the Binary Tree
+    // Return the root of the generated BST
+    Node binaryTreeToBST(Node root)
+    {
+      al.clear();
+      Inorder(root);
+      Collections.sort(al);
+      return TreetoBST(0,al.size()-1);
+    }
+    
+    ArrayList<Integer> al = new ArrayList<>();
+    
+    public void Inorder(Node root){
+        
+        if(root == null){
+            return ;
+        }
+            Inorder(root.left);
+            al.add(root.data);
+            Inorder(root.right);
+        
+    }
+    public Node TreetoBST(int start, int end){
+        
+        if(start>end){
+            return null;
+        }
+        int mid = (start+end)/2;
+        Node root = new Node(al.get(mid));
+        root.left = TreetoBST(start,mid-1);
+        root.right = TreetoBST(mid+1,end);
+        return root;
+    }
+    
+    
+}
+ 
