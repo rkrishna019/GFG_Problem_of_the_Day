@@ -1,0 +1,26 @@
+class Solution
+{
+    public int findPeakElement(List<Integer> a)
+    {
+        int n = a.size();
+        int low = 0;
+        int high =  n-1;
+        int maxi = Integer.MIN_VALUE;
+        while(low <= high){
+            
+            int mid = low+(high-low)/2;
+            if(a.get(mid)> a.get(mid+1)){
+                
+                maxi = Math.max(maxi,a.get(mid));
+                high = mid-1;
+                
+            }
+            if(a.get(mid)<a.get(mid+1)){
+                maxi = Math.max(maxi,a.get(mid));
+                low = mid+1;
+            }
+            
+        }
+        return maxi;
+    }
+}
