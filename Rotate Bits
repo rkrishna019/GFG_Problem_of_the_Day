@@ -1,0 +1,15 @@
+class Solution
+{
+    // static final int BIT_SIZE = 32;   
+    ArrayList<Integer> rotate(int N, int D)
+    {
+       ArrayList<Integer> al = new ArrayList<>();
+       D%=16;
+       int t=16;
+        int left= ((N<<D) | N>>(t-D)) & 65535;
+        int right=((N>>D) | N<<(t-D)) & 65535;
+       al.add(left);
+       al.add(right);
+       return al;
+    }
+}
