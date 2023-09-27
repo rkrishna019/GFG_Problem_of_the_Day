@@ -1,0 +1,32 @@
+class Solution{
+    // Function for finding maximum and value pair
+    public static ArrayList<Integer> printClosest (int arr[], int brr[], int n, int m, int x) {
+       
+       ArrayList<Integer> al = new ArrayList<Integer>();
+        int diff = Integer.MAX_VALUE;
+        int low = 0;
+        int high = m-1;
+        int res_l = 0;
+        int res_r = 0;
+        
+        while(low < n && high >=0){
+            
+            if(Math.abs(arr[low]+brr[high]-x)<diff){
+                res_l = arr[low];
+                res_r = brr[high];
+                diff = Math.abs(arr[low]+brr[high]-x);
+            }
+            else if(arr[low]+brr[high] > x){
+                high--;
+            }
+            else{
+                low++;
+            }
+            
+        }
+        
+        al.add(res_l);
+        al.add(res_r);
+        return al;
+    }
+}
