@@ -1,0 +1,16 @@
+class Solution
+{
+    String colName (long n)
+    {
+        
+        StringBuilder str = new StringBuilder();
+        String ans = "";
+            while(n>0){
+                long rem = (n-1)%26;
+                char ch = (char)(rem + 'A');
+                ans = ch+ans;
+                n = (n-1)/26;
+            }
+            return ans;
+    }
+}
