@@ -1,0 +1,10 @@
+class Solution{
+    static long sumOfDivisors(int N){
+        
+        long sum  = 0;
+        for(int i=2;i<=N;i++){
+            sum += (N/i)*i;
+        }
+        return sum + N;
+    }
+}
