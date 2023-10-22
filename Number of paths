@@ -1,0 +1,18 @@
+class Solution{
+    
+    long numberOfPaths(int M, int N) {
+       
+       long  count = 1;
+       long mod = 100000007;
+       if(M==1 || N == 1) return 1;
+       
+       for(int i=N; i<M+N-1; i++){
+           
+           count = (count * i);
+           count = ((count%mod) / (i-N+1)%mod);
+           
+       }
+       return count;
+    }
+    
+}
