@@ -1,0 +1,26 @@
+class Solution{
+    int DivisibleByEight(String s){
+        
+        int n = s.length();
+        
+        if(n<=3){
+            int num1 = Integer.parseInt(s);
+            if(num1%8 == 0)
+            {
+                return 1;
+            }
+            else{
+                return -1;
+            }
+        }
+        String str = s.substring(n-3,n);
+        int num = Integer.parseInt(str);
+        
+        if(num % 8 == 0)
+        {
+            return 1;
+        }
+        
+        return -1;
+    }
+}
